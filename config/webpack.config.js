@@ -393,6 +393,13 @@ module.exports = function (webpackEnv) {
               exclude: /node_modules/,
             },
             {
+              test: /\.(woff2?|ttf|otf|eot)$/,
+              type: "asset/resource",
+              generator: {
+                filename: "fonts/[name][ext]"
+              },
+            },
+            {
               test: /\.(js|mjs)$/,
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve('babel-loader'),
