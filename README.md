@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# 🎨 Интерактивный интерфейс слайдера
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Тестовое задание на должность Frontend разработчика соискателя Саморукова Максима Львовича
 
-## Available Scripts
+## 📋 Содержание
 
-In the project directory, you can run:
+- [Дизайн-ресурсы](#дизайн-ресурсы)
+- [Начало работы](#начало-работы)
+- [Технологический стек](#технологический-стек)
+- [Структура проекта](#структура-проекта)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎯 Дизайн-ресурсы
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Макет дизайна
+📐 **Figma/Файлы дизайна**: [Посмотреть на Яндекс.Диске](https://disk.360.yandex.ru/d/sKdTKKjxMT06sg)  
+Полные спецификации дизайна, ассеты и визуальные руководства для интерфейса слайдера.
 
-### `npm test`
+### Интерактивная демонстрация
+🎬 **Демо-видео**: [Посмотреть демонстрацию](https://disk.yandex.ru/d/um6QeDGxLT8wnQ)  
+Посмотрите ожидаемое поведение, анимации и пользовательские взаимодействия в действии.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🚀 Начало работы
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Требования
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js** 16.x или выше
+- **npm** 8.x или выше
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Установка
 
-### `npm run eject`
+1. **Клонируйте репозиторий**
+   ```bash
+   git clone <repository-url>
+   cd only_test
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Установите зависимости**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Запустите сервер разработки**
+   ```bash
+   npm start
+   ```
+   
+   Приложение откроется по адресу [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Доступные команды
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Команда | Описание |
+|---------|----------|
+| `npm start` | Запускает приложение в режиме разработки с горячей перезагрузкой |
+| `npm run build` | Создает оптимизированную production-сборку в папке `build/` |
+| `npm test` | Запускает тесты в интерактивном режиме |
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠 Технологический стек
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **React** 19.2.0 — UI библиотека
+- **TypeScript** 5.9.3 — Типизация
+- **SCSS Modules** — Модульные стили
+- **Webpack 5** — Сборщик модулей (кастомная конфигурация)
+- **Swiper** — Библиотека слайдера
+- **gsap** — Библиотека анимаций
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📁 Структура проекта
 
-### Analyzing the Bundle Size
+```
+only_test/
+├── src/
+│   ├── components/        # React компоненты
+│   ├── assets/
+│   │   └── fonts/         # Кастомные шрифты (PTSans, BebasNeue)
+│   ├── fonts.scss         # Объявления @font-face
+│   ├── index.scss         # Глобальные стили
+│   └── index.tsx          # Точка входа приложения
+├── config/                # Конфигурация Webpack
+├── public/                # Статические ассеты
+└── build/                 # Production сборка
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📝 Примечания
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Проект использует **кастомную конфигурацию webpack** (ejected из Create React App)
+- Файлы шрифтов собираются и раздаются из директории `/fonts/`
+- SCSS модули обеспечивают изолированные стили с расширением `.module.scss`
+- TypeScript strict mode включен для лучшей типобезопасности
