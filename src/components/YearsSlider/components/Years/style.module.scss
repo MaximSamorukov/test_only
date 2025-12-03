@@ -1,0 +1,30 @@
+.container {
+  width: 973px;
+  height: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fromContainer {
+  width: fit-content;
+  &Label {
+    font-size: 200px;
+    font-weight: bold;
+    line-height: 160px;
+    letter-spacing: -2%;
+    color: #5d5fef;
+  }
+}
+
+.toContainer {
+  width: fit-content;
+  &Label {
+    font-size: 200px;
+    font-weight: bold;
+    line-height: 160px;
+    letter-spacing: -2%;
+    color: #ef5da8;
+  }
+}

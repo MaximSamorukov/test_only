@@ -1,0 +1,31 @@
+.container {
+  width: 320px;
+  height: 135px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.title {
+  width: fit-content;
+  height: 30px;
+  font-size: 25px;
+  line-height: 120%;
+  color: #3877ee;
+  font-family: 'BebasNeue';
+}
+
+.text {
+  width: 100%;
+  min-width: 320px;
+  text-align: left;
+  span {
+    font-size: 20px;
+    line-height: 30px;
+    color: #42567a;
+    font-weight: 200;
+  }
+}
