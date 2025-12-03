@@ -27,14 +27,14 @@
 
 ### Требования
 
-- **Node.js** 16.x или выше
-- **npm** 8.x или выше
+- **Node.js** 22.x или выше
+- **npm** 10.x или выше
 
 ### Установка
 
 1. **Клонируйте репозиторий**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/MaximSamorukov/test_only.git
    cd only_test
    ```
 
@@ -94,4 +94,3 @@ only_test/
 - Проект использует **кастомную конфигурацию webpack** (ejected из Create React App)
 - Файлы шрифтов собираются и раздаются из директории `/fonts/`
 - SCSS модули обеспечивают изолированные стили с расширением `.module.scss`
-- TypeScript strict mode включен для лучшей типобезопасности
