@@ -5,7 +5,9 @@ export const Title = () => {
   return (
     <div className={s.container}>
       <div className={s.markLine} />
-      <div className={s.title}>Исторические даты</div>
+      <div className={s.title}>
+        <span>Исторические даты</span>
+      </div>
     </div>
   );
 };

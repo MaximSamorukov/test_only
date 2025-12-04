@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-left: 70px;
 }
 .arrowsContainer {
   width: 100%;
@@ -16,10 +17,4 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
-
-.btn {
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
 }
