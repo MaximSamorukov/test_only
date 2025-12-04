@@ -2,8 +2,8 @@ import React from 'react';
 import s from './style.module.scss';
 
 type YearsProps = {
-  from: string;
-  to: string;
+  from: number | null;
+  to: number | null;
 };
 export const Years: React.FC<YearsProps> = ({ from, to }) => {
   return (

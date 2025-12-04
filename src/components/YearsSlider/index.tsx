@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Years } from './components/Years';
 import s from './style.module.scss';
 import { Controls } from './components/Controls';
+import { observer } from 'mobx-react-lite';
+import { historicalDataStore } from '../../store';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Scrollbar } from 'swiper/modules';
 
-export const YearsSlider = () => {
+export const YearsSlider = observer(() => {
+  const period = historicalDataStore.currentPeriod;
+  const periods = historicalDataStore.getAllPeriods();
   return (
     <div className={s.container}>
-      <Years from="2015" to="2022" />
+      <Swiper
+        onSwiper={(swiper) => {
+          historicalDataStore.periodSwiper = swiper;
+        }}
+        modules={[Navigation, Scrollbar]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation={false}
+        pagination={false}
+        scrollbar={false}
+        className={s.swiper}
+      >
+        {periods.map((i) => (
+          <SwiperSlide key={i.from?.toString() + '-' + i.to?.toString()}>
+            <Years from={i.from} to={i.to} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <Controls />
     </div>
   );
-};
+});
