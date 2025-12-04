@@ -13,14 +13,17 @@ class HistoricalDataStore {
   private _periodSwiper: SwiperClass | null = null;
 
   constructor(data: HistoricalData) {
-    makeAutoObservable(this);
     this._data = data;
     this._currentPeriod = { ...data[this._currentIndex].period };
     this._currentPoints = [...data[this._currentIndex].points];
     this._direction = data[this._currentIndex].direction;
+    makeAutoObservable(this);
   }
   getCurrentIndex() {
     return this._currentIndex;
+  }
+  getPeriodsCount() {
+    return this._data.length;
   }
   getNextIndex() {
     const index = this.getCurrentIndex();
@@ -46,11 +49,17 @@ class HistoricalDataStore {
   }
 
   nextPeriod() {
-    this.setCurrentData(this.getNextIndex());
+    if (!this._periodSwiper?.isEnd) {
+      this.periodSwiper?.slideNext();
+      this.setCurrentData(this.getNextIndex());
+    }
   }
 
   prevPeriod() {
-    this.setCurrentData(this.getPrevIndex());
+    if (!this._periodSwiper?.isBeginning) {
+      this.periodSwiper?.slidePrev();
+      this.setCurrentData(this.getPrevIndex());
+    }
   }
 
   get currentPeriod() {

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Years } from './components/Years';
 import s from './style.module.scss';
 import { Controls } from './components/Controls';
@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar } from 'swiper/modules';
 
 export const YearsSlider = observer(() => {
-  const period = historicalDataStore.currentPeriod;
   const periods = historicalDataStore.getAllPeriods();
   return (
     <div className={s.container}>

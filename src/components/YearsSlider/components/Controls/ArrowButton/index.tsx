@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 import s from './style.module.scss';
 import { ThinCircle } from '../../../../shared/ui/Circle/circle';
 
-type RightArrowButtonProps = {
+type ArrowButtonProps = {
   onClick: () => void;
+  disabled: boolean;
+  direction: 'right' | 'left';
 };
-export const RightArrowButton: React.FC<RightArrowButtonProps> = ({
+export const ArrowButton: React.FC<ArrowButtonProps> = ({
   onClick,
+  disabled = false,
+  direction = 'right',
 }) => {
   const [hover, setHover] = useState(false);
   const handleMouseEnter = () => {
@@ -20,11 +25,12 @@ export const RightArrowButton: React.FC<RightArrowButtonProps> = ({
   const hoveredWidth = 1;
   const widthValue = hover ? hoveredWidth : width;
   return (
-    <div
+    <button
+      disabled={disabled}
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={s.container}
+      className={cn(s.container, s[direction])}
     >
       <ThinCircle
         arrowWidth={widthValue}
@@ -32,6 +38,6 @@ export const RightArrowButton: React.FC<RightArrowButtonProps> = ({
         stroke={color}
         strokeWidth={widthValue}
       />
-    </div>
+    </button>
   );
 };

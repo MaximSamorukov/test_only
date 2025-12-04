@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { observer } from 'mobx-react-lite';
 import { Item } from './components/Item';
@@ -15,7 +15,12 @@ import s from './style.module.scss';
 
 export const ItemsSlider = observer(() => {
   const points = historicalDataStore.currentPoints;
-  console.log(points);
+  const swiper = historicalDataStore.swiper;
+
+  useEffect(() => {
+    swiper?.slideTo(0);
+  }, [points]);
+
   return (
     <div className={s.container}>
       <ArrowLeftButton />
