@@ -1,11 +1,14 @@
 .mainContainer {
   width: 1440px;
-  height: 100vh;
+  height: 1080px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  background-image: url('./assets/back.svg');
+  background-position: 0, 0;
+  background-size: contain;
 }
 
 .innerContainer {
