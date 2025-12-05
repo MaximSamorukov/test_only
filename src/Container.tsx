@@ -55,6 +55,22 @@ export const Container = () => {
     console.log('Clicked dot:', dotId);
   };
 
+  const handleDotMouseEnter = (event: React.MouseEvent<SVGCircleElement>) => {
+    gsap.to(event.currentTarget, {
+      attr: { r: 14 },
+      duration: 0.3,
+      ease: 'power2.out',
+    });
+  };
+
+  const handleDotMouseLeave = (event: React.MouseEvent<SVGCircleElement>) => {
+    gsap.to(event.currentTarget, {
+      attr: { r: 8 },
+      duration: 0.3,
+      ease: 'power2.out',
+    });
+  };
+
   return (
     <div className={s.mainContainer}>
       <svg
@@ -78,6 +94,8 @@ export const Container = () => {
             cy={dot.y}
             r={8}
             fill="black"
+            onMouseEnter={handleDotMouseEnter}
+            onMouseLeave={handleDotMouseLeave}
             className={s.dot}
             onClick={() => handleDotClick(dot.id)}
           />
