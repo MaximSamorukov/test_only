@@ -2,7 +2,7 @@ import { HistoricalData } from './type';
 
 export const historicalData: HistoricalData = [
   {
-    period: { from: 1983, to: 1989 },
+    period: { id: 0, from: 1983, to: 1989 },
     direction: 'fashion',
     points: [
       {
@@ -44,7 +44,7 @@ export const historicalData: HistoricalData = [
   },
 
   {
-    period: { from: 1990, to: 1996 },
+    period: { id: 1, from: 1990, to: 1996 },
     direction: 'tech',
     points: [
       {
@@ -86,7 +86,7 @@ export const historicalData: HistoricalData = [
   },
 
   {
-    period: { from: 1996, to: 2002 },
+    period: { id: 2, from: 1996, to: 2002 },
     direction: 'medicine',
     points: [
       {
@@ -128,7 +128,7 @@ export const historicalData: HistoricalData = [
   },
 
   {
-    period: { from: 2002, to: 2008 },
+    period: { id: 3, from: 2002, to: 2008 },
     direction: 'science',
     points: [
       {
@@ -170,7 +170,7 @@ export const historicalData: HistoricalData = [
   },
 
   {
-    period: { from: 2008, to: 2014 },
+    period: { id: 4, from: 2008, to: 2014 },
     direction: 'automotive',
     points: [
       {
@@ -212,7 +212,7 @@ export const historicalData: HistoricalData = [
   },
 
   {
-    period: { from: 2014, to: 2020 },
+    period: { id: 5, from: 2014, to: 2020 },
     direction: 'transport',
     points: [
       {
@@ -253,7 +253,7 @@ export const historicalData: HistoricalData = [
   },
 
   {
-    period: { from: 2020, to: 2025 },
+    period: { id: 6, from: 2020, to: 2025 },
     direction: 'politics',
     points: [
       {

@@ -1,18 +1,35 @@
+import { FULL_CIRCLE_DEG, START_ANGLE } from './constants';
+import { Period } from './store/type';
+
 export const calculateDots = (
   cx: number,
   cy: number,
   r: number,
-  count: number,
+  periods: Period[],
 ) => {
-  const angleStep = 360 / count;
-  const startAngle = -90;
+  const count = periods.length;
+  const angleStep = FULL_CIRCLE_DEG / count;
+  const startAngle = START_ANGLE;
 
-  return Array.from({ length: count }, (_, i) => {
-    const angle = ((startAngle + i * angleStep) * Math.PI) / 180;
+  return periods.map((i) => {
+    const angle =
+      ((startAngle + i.id! * angleStep) * Math.PI) / (FULL_CIRCLE_DEG / 2);
     return {
-      id: i,
+      id: i.id!,
       x: cx + r * Math.cos(angle),
       y: cy + r * Math.sin(angle),
     };
   });
+};
+
+export const getRealIndex = (
+  currentIndex: number,
+  id: number,
+  count: number,
+) => {
+  const sum = currentIndex + id;
+  if (sum < count) {
+    return sum;
+  }
+  return sum - count;
 };

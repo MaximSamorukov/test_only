@@ -4,3 +4,6 @@ export const CIRCLE_RADIUS = 265;
 export const MAX_WIDTH = 1440;
 export const MAX_HEIGHT = 1080;
 export const PATH_COLOR = 'rgb(66, 86, 122)';
+export const DOT_RADIUS = 4;
+export const START_ANGLE = -62;
+export const FULL_CIRCLE_DEG = 360;

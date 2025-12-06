@@ -22,5 +22,6 @@ export type Direction =
 export type Period = {
   from: number | null;
   to: number | null;
+  id: number | null;
 };
 export type HistoricalData = DataItem[];

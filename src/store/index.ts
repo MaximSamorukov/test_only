@@ -41,11 +41,17 @@ class HistoricalDataStore {
   }
 
   private setCurrentData(index: number): void {
-    const info = this._data[index];
+    const info = this._data.find((i) => i.period.id === index);
+    console.log(index, info);
     this._currentIndex = index;
-    this._direction = info.direction;
-    this._currentPeriod = { ...info.period };
-    this._currentPoints = [...info.points];
+    this._direction = info?.direction!;
+    this._currentPeriod = { ...info?.period! };
+    this._currentPoints = [...info?.points!];
+  }
+
+  setCurrentPeriod(index: number) {
+    this._periodSwiper?.slideTo(index);
+    this.setCurrentData(index);
   }
 
   nextPeriod() {
