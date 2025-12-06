@@ -1,9 +1,9 @@
-import { useRef, useMemo, useLayoutEffect } from 'react';
+import { useRef, useMemo, useLayoutEffect, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { YearsSlider } from './components/YearsSlider';
 import { Title } from './components/Title';
 import { ItemsSlider } from './components/ItemsSlider';
-import { calculateDots, getRealIndex } from './utils';
+import { calculateDots, getDelta, getRealIndex } from './utils';
 import {
   CIRCLE_RADIUS,
   DOT_RADIUS,
@@ -14,44 +14,36 @@ import {
   X_CENTER,
   Y_CENTER,
 } from './constants';
-import s from './Container.module.scss';
 import { historicalDataStore } from './store';
 import { observer } from 'mobx-react-lite';
+import s from './Container.module.scss';
 
 export const Container = observer(() => {
   const groupRef = useRef<SVGGElement>(null);
   const periods = historicalDataStore.getAllPeriods();
+  const periodsCount = periods.length;
   const currentIndex = historicalDataStore.getCurrentIndex();
+  const previousIndex = historicalDataStore.getPreviousIndex();
+
   const dots = useMemo(
     () => calculateDots(X_CENTER, Y_CENTER, CIRCLE_RADIUS, periods),
     [periods],
   );
 
   useLayoutEffect(() => {
-    if (!groupRef.current) return;
-
-    gsap.to(groupRef.current, {
-      rotation: 0,
-      duration: 2,
-      repeat: -1,
-      ease: 'none',
-      svgOrigin: `${X_CENTER} ${Y_CENTER}`,
-    });
-  }, []);
-
-  const handleDotClick = (dotId: number) => {
-    const length = periods.length;
-    const realIndex = getRealIndex(currentIndex, dotId, length);
-    const delta = dotId > Math.floor(length / 2) ? length - dotId : -dotId;
-    const angelPerPeriod = FULL_CIRCLE_DEG / periods.length;
+    let delta = getDelta(previousIndex, currentIndex, periodsCount);
+    const angelPerPeriod = FULL_CIRCLE_DEG / periodsCount;
     const travelAngel = angelPerPeriod * delta;
     gsap.to(groupRef.current, {
-      rotation: travelAngel,
+      rotation: `-=${travelAngel}`,
       duration: 1.5,
       ease: 'sine.inOut',
       svgOrigin: `${X_CENTER} ${Y_CENTER}`,
     });
-    historicalDataStore.setCurrentPeriod(realIndex);
+  }, [currentIndex, previousIndex, periodsCount]);
+
+  const handleDotClick = (dotId: number) => {
+    historicalDataStore.setCurrentPeriod(dotId);
   };
 
   const handleDotMouseEnter =

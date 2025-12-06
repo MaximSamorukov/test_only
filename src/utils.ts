@@ -33,3 +33,30 @@ export const getRealIndex = (
   }
   return sum - count;
 };
+
+export const getDelta = (
+  previousIndex: number,
+  currentIndex: number,
+  periodsCount: number,
+) => {
+  let delta = 0;
+  if (previousIndex > currentIndex) {
+    const counterCWDelta = previousIndex - currentIndex;
+    const сWDelta = periodsCount - counterCWDelta;
+    if (counterCWDelta > сWDelta) {
+      delta = сWDelta;
+    } else {
+      delta = -counterCWDelta;
+    }
+  }
+  if (previousIndex < currentIndex) {
+    const cWDelta = currentIndex - previousIndex;
+    const counterCWDelta = periodsCount - cWDelta;
+    if (counterCWDelta > cWDelta) {
+      delta = cWDelta;
+    } else {
+      delta = -counterCWDelta;
+    }
+  }
+  return delta;
+};

@@ -9,6 +9,7 @@ class HistoricalDataStore {
   private _currentPoints: Point[];
   private _direction: Direction;
   private _currentIndex: number = 0;
+  private _previousIndex: number = 0;
   private _swiper: SwiperClass | null = null;
   private _periodSwiper: SwiperClass | null = null;
 
@@ -21,6 +22,9 @@ class HistoricalDataStore {
   }
   getCurrentIndex() {
     return this._currentIndex;
+  }
+  getPreviousIndex() {
+    return this._previousIndex;
   }
   getPeriodsCount() {
     return this._data.length;
@@ -42,7 +46,7 @@ class HistoricalDataStore {
 
   private setCurrentData(index: number): void {
     const info = this._data.find((i) => i.period.id === index);
-    console.log(index, info);
+    this._previousIndex = this._currentIndex;
     this._currentIndex = index;
     this._direction = info?.direction!;
     this._currentPeriod = { ...info?.period! };
