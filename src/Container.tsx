@@ -1,38 +1,30 @@
-import { useEffect, useRef, useMemo } from 'react';
+import { useRef, useMemo, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { YearsSlider } from './components/YearsSlider';
 import { Title } from './components/Title';
 import { ItemsSlider } from './components/ItemsSlider';
+import { calculateDots } from './utils';
+import {
+  CIRCLE_RADIUS,
+  MAX_HEIGHT,
+  MAX_WIDTH,
+  PATH_COLOR,
+  X_CENTER,
+  Y_CENTER,
+} from './constants';
 import s from './Container.module.scss';
 
 gsap.registerPlugin(MotionPathPlugin);
 
-const calculateDots = (
-  cx: number,
-  cy: number,
-  rx: number,
-  ry: number,
-  count: number,
-) => {
-  const angleStep = 360 / count;
-  const startAngle = -90;
-
-  return Array.from({ length: count }, (_, i) => {
-    const angle = ((startAngle + i * angleStep) * Math.PI) / 180;
-    return {
-      id: i,
-      x: cx + rx * Math.cos(angle),
-      y: cy + ry * Math.sin(angle),
-    };
-  });
-};
-
 export const Container = () => {
   const dotsRef = useRef<(SVGCircleElement | null)[]>([]);
-  const dots = useMemo(() => calculateDots(720, 480, 265, 265, 6), []);
+  const dots = useMemo(
+    () => calculateDots(X_CENTER, Y_CENTER, CIRCLE_RADIUS, 6),
+    [],
+  );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dotsRef.current.forEach((dot, index) => {
       if (!dot) return;
 
@@ -73,16 +65,13 @@ export const Container = () => {
 
   return (
     <div className={s.mainContainer}>
-      <svg
-        className={s.dotsOverlay}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 1080"
-      >
+      <svg className={s.dotsOverlay} viewBox={`0 0 ${MAX_WIDTH} ${MAX_HEIGHT}`}>
         <path
           id="circlePath"
           d="M 720,215 A 265,265 0 1,1 719.99,215"
           fill="none"
-          stroke="none"
+          strokeWidth="0.5px"
+          stroke={PATH_COLOR}
         />
         {dots.map((dot, index) => (
           <circle
