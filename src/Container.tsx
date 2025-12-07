@@ -15,18 +15,22 @@ import {
   X_CENTER,
   Y_CENTER,
   BACKGROUND_COLOR,
+  DIRECTION_POS_X,
+  DIRECTION_POS_Y,
 } from './constants';
 import { historicalDataStore } from './store';
 import { observer } from 'mobx-react-lite';
 import s from './Container.module.scss';
+import { directionTranslations } from './store/directionTranslations';
 
 export const Container = observer(() => {
   const groupRef = useRef<SVGGElement>(null);
+  const directionLabelRef = useRef<SVGTextElement>(null);
   const periods = historicalDataStore.getAllPeriods();
   const periodsCount = periods.length;
   const currentIndex = historicalDataStore.getCurrentIndex();
   const previousIndex = historicalDataStore.getPreviousIndex();
-
+  const currentDirection = historicalDataStore.direction;
   const dots = useMemo(
     () => calculateDots(X_CENTER, Y_CENTER, CIRCLE_RADIUS, periods),
     [periods],
@@ -59,6 +63,24 @@ export const Container = observer(() => {
         0,
       );
     });
+    if (travelAngel) {
+      tl.to(
+        directionLabelRef.current,
+        {
+          opacity: 0,
+          duration: 0.2,
+        },
+        0,
+      );
+      tl.to(
+        directionLabelRef.current,
+        {
+          opacity: 1,
+          duration: 0.2,
+        },
+        '1.5',
+      );
+    }
   }, [currentIndex, previousIndex, periodsCount]);
 
   const handleDotClick = (dotId: number) => {
@@ -126,7 +148,7 @@ export const Container = observer(() => {
           duration: 0.1,
           ease: 'power2.out',
         },
-        0,
+        0.1,
       );
     });
   };
@@ -134,6 +156,24 @@ export const Container = observer(() => {
   return (
     <div className={s.mainContainer}>
       <svg className={s.dotsOverlay} viewBox={`0 0 ${MAX_WIDTH} ${MAX_HEIGHT}`}>
+        <text
+          ref={directionLabelRef}
+          id="direction"
+          x={DIRECTION_POS_X}
+          y={DIRECTION_POS_Y}
+          textAnchor="middle"
+          dominantBaseline="central"
+          fontSize="20"
+          fill={PATH_COLOR}
+          opacity={1}
+          style={{
+            pointerEvents: 'none',
+            userSelect: 'none',
+            color: PATH_COLOR,
+          }}
+        >
+          {currentDirection ? directionTranslations[currentDirection] : ''}
+        </text>
         <path
           id="circlePath"
           d="M 720,215 A 265,265 0 1,1 719.99,215"
@@ -163,7 +203,7 @@ export const Container = observer(() => {
                 cx={dot.x}
                 cy={dot.y}
                 r={0}
-                fill="black"
+                fill={PATH_COLOR}
               />
               <text
                 x={dot.x}
@@ -171,7 +211,7 @@ export const Container = observer(() => {
                 textAnchor="middle"
                 dominantBaseline="central"
                 fontSize="14"
-                fill="black"
+                fill={PATH_COLOR}
                 opacity={0}
                 style={{
                   pointerEvents: 'none',
