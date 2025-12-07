@@ -36,11 +36,28 @@ export const Container = observer(() => {
     let delta = getDelta(previousIndex, currentIndex, periodsCount);
     const angelPerPeriod = FULL_CIRCLE_DEG / periodsCount;
     const travelAngel = angelPerPeriod * delta;
-    gsap.to(groupRef.current, {
+    const tl = gsap.timeline();
+    tl.to(groupRef.current, {
       rotation: `-=${travelAngel}`,
       duration: 1.5,
       ease: 'sine.inOut',
       svgOrigin: `${X_CENTER} ${Y_CENTER}`,
+    });
+
+    const texts = groupRef.current?.querySelectorAll('text');
+    texts?.forEach((text) => {
+      const x = text.getAttribute('x');
+      const y = text.getAttribute('y');
+      tl.to(
+        text,
+        {
+          rotation: `+=${travelAngel}`,
+          duration: 1.5,
+          ease: 'sine.inOut',
+          svgOrigin: `${x} ${y}`,
+        },
+        0,
+      );
     });
   }, [currentIndex, previousIndex, periodsCount]);
 
@@ -64,7 +81,7 @@ export const Container = observer(() => {
           ease: 'power2.out',
         })
         .to(innerCircle, {
-          attr: { r: END_DOT_RADIUS - 0.6 },
+          attr: { r: END_DOT_RADIUS - 0.7 },
           fill: BACKGROUND_COLOR,
           duration: 0.2,
           ease: 'power2.out',
@@ -83,32 +100,35 @@ export const Container = observer(() => {
   const handleDotMouseLeave = (event: React.MouseEvent<SVGGElement>) => {
     const outerCircle = event.currentTarget.querySelector('#outer_circle');
     const innerCircle = event.currentTarget.querySelector('#inner_circle');
+    const texts = groupRef.current?.querySelectorAll('text');
 
-    const text = event.currentTarget.querySelector('text');
-
-    gsap
-      .timeline()
-      .to(text, {
-        opacity: 0,
-        duration: 0.1,
-        ease: 'power2.out',
-      })
-      .to(innerCircle, {
-        attr: { r: 0 },
-        fill: PATH_COLOR,
-        stroke: 'none',
-        strokeWidth: 0,
-        duration: 0.1,
-        ease: 'power2.out',
-      })
-      .to(outerCircle, {
-        attr: { r: START_DOT_RADIUS },
-        fill: PATH_COLOR,
-        stroke: 'none',
-        strokeWidth: 0,
-        duration: 0.2,
-        ease: 'power2.out',
-      });
+    const tl = gsap.timeline();
+    tl.to(innerCircle, {
+      attr: { r: 0 },
+      fill: PATH_COLOR,
+      stroke: 'none',
+      strokeWidth: 0,
+      duration: 0.1,
+      ease: 'power2.out',
+    }).to(outerCircle, {
+      attr: { r: START_DOT_RADIUS },
+      fill: PATH_COLOR,
+      stroke: 'none',
+      strokeWidth: 0,
+      duration: 0.2,
+      ease: 'power2.out',
+    });
+    texts?.forEach((text) => {
+      tl.to(
+        text,
+        {
+          opacity: 0,
+          duration: 0.1,
+          ease: 'power2.out',
+        },
+        0,
+      );
+    });
   };
 
   return (
@@ -127,7 +147,7 @@ export const Container = observer(() => {
               key={dot.id}
               onMouseEnter={handleDotMouseEnter(dot.id)}
               onMouseLeave={handleDotMouseLeave}
-              className={`${s.dot} + ' ' + ${dot.id}`}
+              className={s.dot}
               onClick={() => handleDotClick(dot.id)}
               style={{ cursor: 'pointer' }}
             >
@@ -136,7 +156,7 @@ export const Container = observer(() => {
                 cx={dot.x}
                 cy={dot.y}
                 r={START_DOT_RADIUS}
-                fill="black"
+                fill={PATH_COLOR}
               />
               <circle
                 id="inner_circle"
