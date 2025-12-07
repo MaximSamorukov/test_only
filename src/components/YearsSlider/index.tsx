@@ -6,8 +6,10 @@ import { observer } from 'mobx-react-lite';
 import { historicalDataStore } from '../../store';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar } from 'swiper/modules';
+import { useMediaQuery } from 'react-responsive';
 
 export const YearsSlider = observer(() => {
+  const isMaxWidth1050px = useMediaQuery({ query: '(max-width: 1050px)' });
   const periods = historicalDataStore.getAllPeriods();
   return (
     <div className={s.container}>
@@ -29,7 +31,7 @@ export const YearsSlider = observer(() => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Controls />
+      {isMaxWidth1050px ? <></> : <Controls />}
     </div>
   );
 });

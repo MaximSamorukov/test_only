@@ -11,4 +11,36 @@
   width: 973px;
   height: fit-content;
   margin-bottom: 150px;
+  @media (max-width: 1440px) {
+    width: 873px;
+  }
+  @media (max-width: 1220px) {
+    width: 773px;
+  }
+  @media (max-width: 1050px) {
+    width: 660px;
+    margin-bottom: 100px;
+  }
+  @media (max-width: 800px) {
+    width: 550px;
+  }
+  @media (max-width: 600px) {
+    width: 457px;
+  }
+  @media (max-width: 480px) {
+    width: 410px;
+    margin-bottom: 100px;
+  }
+  @media (max-width: 410px) {
+    width: 280px;
+    margin-bottom: 90px;
+  }
+  @media (max-width: 360px) {
+    width: 270px;
+    margin-bottom: 77px;
+  }
+  @media (max-width: 330px) {
+    width: 255px;
+    margin-bottom: 77px;
+  }
 }

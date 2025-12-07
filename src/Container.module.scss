@@ -1,13 +1,13 @@
 .mainContainer {
-  width: 1440px;
-  height: 1080px;
+  max-width: 1440px;
+  max-height: 1080px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  background-image: url('./assets/back.svg');
+  //background-image: url('./assets/back.svg');
   background-position: 0, 0;
   background-size: contain;
 }
@@ -20,6 +20,10 @@
   height: 100%;
   z-index: 2;
   pointer-events: none;
+  box-sizing: border-box;
+  @media (max-width: 1050px) {
+    display: none;
+  }
 }
 
 .dot {
@@ -40,4 +44,42 @@
   padding-top: 150px;
   padding-bottom: 100px;
   pointer-events: auto;
+
+  @media (max-width: 1440px) {
+    width: 1200px;
+    height: 1080px;
+  }
+  @media (max-width: 1220px) {
+    width: 1000px;
+  }
+  @media (max-width: 1050px) {
+    width: 800px;
+  }
+  @media (max-width: 800px) {
+    width: 600px;
+  }
+  @media (max-width: 600px) {
+    padding-top: 130px;
+    width: 500px;
+  }
+  @media (max-width: 510px) {
+    padding-top: 120px;
+    width: 450px;
+  }
+  @media (max-width: 480px) {
+    padding-top: 110px;
+    width: 400px;
+  }
+  @media (max-width: 410px) {
+    padding-top: 100px;
+    width: 350px;
+  }
+  @media (max-width: 360px) {
+    padding-top: 79px;
+    width: 330px;
+  }
+  @media (max-width: 330px) {
+    padding-top: 59px;
+    width: 315px;
+  }
 }

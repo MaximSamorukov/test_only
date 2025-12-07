@@ -10,6 +10,44 @@
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 110px;
+  @media (max-width: 1440px) {
+    min-width: 431px;
+    margin-bottom: 120px;
+  }
+  @media (max-width: 1220px) {
+    min-width: 420px;
+    margin-bottom: 125px;
+  }
+  @media (max-width: 1050px) {
+    min-width: 420px;
+    margin-bottom: 138px;
+  }
+  @media (max-width: 800px) {
+    min-width: 300px;
+  }
+  @media (max-width: 600px) {
+    width: 300px;
+  }
+  @media (max-width: 480px) {
+    margin-bottom: 110px;
+    height: fit-content;
+    margin-left: 20px;
+  }
+  @media (max-width: 410px) {
+    margin-bottom: 90px;
+    height: fit-content;
+    margin-left: 20px;
+  }
+  @media (max-width: 360px) {
+    margin-bottom: 70px;
+    margin-left: 20px;
+    height: fit-content;
+  }
+  @media (max-width: 330px) {
+    margin-bottom: 56px;
+    margin-left: 20px;
+    height: fit-content;
+  }
 }
 
 .markLine {
@@ -17,6 +55,10 @@
   width: 5px;
   background: linear-gradient(to bottom, #3877ee, #ef5da8);
   box-shadow: 0 4px 4px 0 rgba(#000000, 0.25);
+
+  @media (max-width: 510px) {
+    display: none;
+  }
 }
 
 .title {
@@ -33,5 +75,66 @@
     font-size: 56px;
     letter-spacing: -1%;
     color: #42567a;
+  }
+  @media (max-width: 1440px) {
+    width: 353px;
+    span {
+      font-size: 53px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 1220px) {
+    width: 353px;
+    span {
+      font-size: 50px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 1050px) {
+    width: 353px;
+    span {
+      font-size: 46px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 800px) {
+    width: 353px;
+    span {
+      font-size: 40px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 600px) {
+    width: 353px;
+    span {
+      font-size: 36px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 480px) {
+    span {
+      font-size: 36px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 410px) {
+    width: 200px;
+    span {
+      font-size: 25px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 360px) {
+    width: 200px;
+    span {
+      font-size: 20px;
+      letter-spacing: -1%;
+    }
+  }
+  @media (max-width: 330px) {
+    span {
+      font-size: 20px;
+      letter-spacing: -1%;
+    }
   }
 }

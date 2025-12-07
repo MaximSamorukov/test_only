@@ -5,15 +5,95 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  font-size: 200px;
+  font-weight: bold;
+  line-height: 160px;
+  letter-spacing: -2%;
+  box-sizing: border-box;
+  @media (max-width: 1440px) {
+    width: 873px;
+    font-size: 180px;
+    font-weight: bold;
+    line-height: 160px;
+    letter-spacing: -2%;
+  }
+  @media (max-width: 1220px) {
+    width: 773px;
+
+    font-size: 160px;
+    font-weight: bold;
+    line-height: 160px;
+    letter-spacing: -2%;
+  }
+  @media (max-width: 1050px) {
+    width: 650px;
+
+    font-size: 140px;
+    font-weight: bold;
+    line-height: 160px;
+    letter-spacing: -4%;
+  }
+  @media (max-width: 800px) {
+    width: 550px;
+
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 150px;
+    height: 150px;
+    letter-spacing: -6%;
+  }
+  @media (max-width: 600px) {
+    width: 450px;
+
+    font-size: 100px;
+    font-weight: bold;
+    line-height: 130px;
+    height: 130px;
+    letter-spacing: -8%;
+  }
+  @media (max-width: 480px) {
+    width: 360px;
+
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 100px;
+    height: 100px;
+    letter-spacing: -8%;
+  }
+  @media (max-width: 410px) {
+    width: 270px;
+
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 77px;
+    height: 77px;
+    letter-spacing: -8%;
+  }
+  @media (max-width: 360px) {
+    width: 260px;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 73px;
+    height: 73px;
+    letter-spacing: -8%;
+  }
+  @media (max-width: 330px) {
+    width: 250px;
+    font-size: 56px;
+    font-weight: bold;
+    line-height: 73px;
+    height: 73px;
+    letter-spacing: -8%;
+  }
 }
 
 .fromContainer {
   width: fit-content;
   &Label {
-    font-size: 200px;
-    font-weight: bold;
-    line-height: 160px;
-    letter-spacing: -2%;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
     color: #5d5fef;
   }
 }
@@ -21,10 +101,10 @@
 .toContainer {
   width: fit-content;
   &Label {
-    font-size: 200px;
-    font-weight: bold;
-    line-height: 160px;
-    letter-spacing: -2%;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
     color: #ef5da8;
   }
 }

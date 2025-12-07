@@ -22,8 +22,11 @@ import { historicalDataStore } from './store';
 import { observer } from 'mobx-react-lite';
 import s from './Container.module.scss';
 import { directionTranslations } from './store/directionTranslations';
+import { Controls } from './components/YearsSlider/components/Controls';
+import { useMediaQuery } from 'react-responsive';
 
 export const Container = observer(() => {
+  const isMaxWidth1050px = useMediaQuery({ query: '(max-width: 1050px)' });
   const groupRef = useRef<SVGGElement>(null);
   const directionLabelRef = useRef<SVGTextElement>(null);
   const periods = historicalDataStore.getAllPeriods();
@@ -231,6 +234,7 @@ export const Container = observer(() => {
         <Title />
         <YearsSlider />
         <ItemsSlider />
+        {isMaxWidth1050px ? <Controls /> : <></>}
       </div>
     </div>
   );
