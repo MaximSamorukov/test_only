@@ -5,6 +5,15 @@
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 50px;
+  @media (max-width: 330px) {
+    margin-bottom: 20px;
+    &::after {
+      content: '';
+      width: 273px;
+      height: 2px;
+      background-color: #c7cdd9;
+    }
+  }
 }
 
 .swiper {
@@ -41,6 +50,7 @@
   }
   @media (max-width: 330px) {
     width: 255px;
-    margin-bottom: 77px;
+    margin-bottom: 57px;
+    margin-left: 20px !important;
   }
 }

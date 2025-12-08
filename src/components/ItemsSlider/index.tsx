@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { observer } from 'mobx-react-lite';
-import { useMediaQuery } from 'react-responsive';
 import { Item } from './components/Item';
 import { ArrowRightButton } from './components/ArrowRight';
 import { ArrowLeftButton } from './components/ArrowLeft';

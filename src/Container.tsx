@@ -24,6 +24,7 @@ import s from './Container.module.scss';
 import { directionTranslations } from './store/directionTranslations';
 import { Controls } from './components/YearsSlider/components/Controls';
 import { useMediaQuery } from 'react-responsive';
+import { Shim } from './components/shared/ui/Shim';
 
 export const Container = observer(() => {
   const isMaxWidth1050px = useMediaQuery({ query: '(max-width: 1050px)' });
@@ -234,6 +235,7 @@ export const Container = observer(() => {
         <Title />
         <YearsSlider />
         <ItemsSlider />
+        {isMaxWidth1050px ? <Shim height={78} /> : <></>}
         {isMaxWidth1050px ? <Controls /> : <></>}
       </div>
     </div>

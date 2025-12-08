@@ -1,0 +1,35 @@
+.container {
+  all: unset;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+
+.item {
+  &Container {
+    all: unset;
+    width: 16px;
+    height: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #42567a;
+  opacity: 40%;
+  &Current {
+    opacity: 100%;
+  }
+}

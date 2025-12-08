@@ -14,4 +14,11 @@
     display: inline-block;
     height: 18px;
   }
+  @media (max-width: 600px) {
+    padding-top: 0;
+    padding-bottom: 0;
+    span {
+      height: 14px;
+    }
+  }
 }

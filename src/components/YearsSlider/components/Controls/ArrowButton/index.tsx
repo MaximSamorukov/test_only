@@ -7,11 +7,13 @@ type ArrowButtonProps = {
   onClick: () => void;
   disabled: boolean;
   direction: 'right' | 'left';
+  size?: number;
 };
 export const ArrowButton: React.FC<ArrowButtonProps> = ({
   onClick,
   disabled = false,
   direction = 'right',
+  size = 50,
 }) => {
   const [hover, setHover] = useState(false);
   const handleMouseEnter = () => {
@@ -34,7 +36,7 @@ export const ArrowButton: React.FC<ArrowButtonProps> = ({
     >
       <ThinCircle
         arrowWidth={widthValue}
-        size={50}
+        size={size}
         stroke={color}
         strokeWidth={widthValue}
       />
