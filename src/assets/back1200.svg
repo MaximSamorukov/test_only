@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1080" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:export>
+      <bx:file format="svg"/>
+    </bx:export>
+  </defs>
+  <rect width="1200" height="1080" style="fill: none; stroke: rgb(66, 86, 122); vector-effect: non-scaling-stroke; stroke-width: 0.5px;"/>
+  <line style="fill: rgb(216, 216, 216); stroke: rgb(66, 86, 122); stroke-width: 0.5px;" x1="0" y1="480" x2="1200" y2="480"/>
+  <line style="fill: rgb(216, 216, 216); stroke: rgb(66, 86, 122); stroke-width: 0.5px;" x1="600" y1="0" x2="600" y2="1080"/>
+</svg>

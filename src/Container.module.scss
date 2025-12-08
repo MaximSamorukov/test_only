@@ -7,9 +7,18 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  //background-image: url('./assets/back.svg');
+  background-image: url('./assets/back.svg');
   background-position: 0, 0;
   background-size: contain;
+  @media (max-width: 1440px) {
+    background-image: url('./assets/back1200.svg');
+  }
+  @media (max-width: 1220px) {
+    background-image: url('./assets/back1000.svg');
+  }
+  @media (max-width: 1050px) {
+    background-image: none;
+  }
 }
 
 .dotsOverlay {

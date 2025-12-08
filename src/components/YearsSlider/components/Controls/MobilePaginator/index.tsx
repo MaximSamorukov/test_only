@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import s from './style.module.scss';
 import { observer } from 'mobx-react-lite';

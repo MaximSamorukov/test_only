@@ -165,7 +165,7 @@ export const Container = observer(() => {
           id="direction"
           x={DIRECTION_POS_X}
           y={DIRECTION_POS_Y}
-          textAnchor="middle"
+          textAnchor="start"
           dominantBaseline="central"
           fontSize="20"
           fill={PATH_COLOR}

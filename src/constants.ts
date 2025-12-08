@@ -9,5 +9,5 @@ export const END_DOT_RADIUS = 28;
 export const START_ANGLE = -62;
 export const FULL_CIRCLE_DEG = 360;
 export const BACKGROUND_COLOR = '#E5E5E5';
-export const DIRECTION_POS_X = 915;
+export const DIRECTION_POS_X = 882;
 export const DIRECTION_POS_Y = 245;
