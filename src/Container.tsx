@@ -18,15 +18,17 @@ import {
   DIRECTION_POS_X,
   DIRECTION_POS_Y,
 } from './constants';
-import { historicalDataStore } from './store';
 import { observer } from 'mobx-react-lite';
-import s from './Container.module.scss';
 import { directionTranslations } from './store/directionTranslations';
 import { Controls } from './components/YearsSlider/components/Controls';
 import { useMediaQuery } from 'react-responsive';
 import { Shim } from './components/shared/ui/Shim';
+import { useHistoricalDataStore } from './store/hookProvider';
+import s from './Container.module.scss';
 
 export const Container = observer(() => {
+  const historicalDataStore = useHistoricalDataStore();
+
   const isMaxWidth1050px = useMediaQuery({ query: '(max-width: 1050px)' });
   const groupRef = useRef<SVGGElement>(null);
   const directionLabelRef = useRef<SVGTextElement>(null);

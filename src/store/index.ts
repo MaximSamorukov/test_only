@@ -3,7 +3,7 @@ import { historicalData } from './constants';
 import { Direction, HistoricalData, Period, Point } from './type';
 import { SwiperClass } from 'swiper/react';
 
-class HistoricalDataStore {
+export class HistoricalDataStore {
   private readonly _data: HistoricalData;
   private _currentPeriod: Period;
   private _currentPoints: Point[];
@@ -111,5 +111,3 @@ class HistoricalDataStore {
     return this._data.map((i) => i.period);
   }
 }
-
-export const historicalDataStore = new HistoricalDataStore(historicalData);

@@ -2,9 +2,11 @@ import React from 'react';
 import cn from 'classnames';
 import s from './style.module.scss';
 import { observer } from 'mobx-react-lite';
-import { historicalDataStore } from '../../../../../store';
+import { useHistoricalDataStore } from '../../../../../store/hookProvider';
 
 export const MobilePaginator = observer(() => {
+  const historicalDataStore = useHistoricalDataStore();
+
   const periodsCount = historicalDataStore.getPeriodsCount();
   const currentIndex = historicalDataStore.getCurrentIndex();
 

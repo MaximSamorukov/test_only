@@ -1,14 +1,16 @@
 import React from 'react';
-import s from './style.module.scss';
 import { PagesCount } from './PagesCount';
 import { observer } from 'mobx-react-lite';
-import { historicalDataStore } from '../../../../store';
 import { ArrowButton } from './ArrowButton';
 import { useMediaQuery } from 'react-responsive';
 import { MobilePaginator } from './MobilePaginator';
+import { useHistoricalDataStore } from '../../../../store/hookProvider';
+import s from './style.module.scss';
 
 export const Controls = observer(() => {
   const maxWidth1050 = useMediaQuery({ query: '(max-width: 1050px)' });
+  const historicalDataStore = useHistoricalDataStore();
+
   const currentIndex = historicalDataStore.getCurrentIndex();
   const periodsCount = historicalDataStore.getPeriodsCount();
 

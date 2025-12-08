@@ -3,13 +3,15 @@ import { Years } from './components/Years';
 import s from './style.module.scss';
 import { Controls } from './components/Controls';
 import { observer } from 'mobx-react-lite';
-import { historicalDataStore } from '../../store';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar } from 'swiper/modules';
 import { useMediaQuery } from 'react-responsive';
+import { useHistoricalDataStore } from '../../store/hookProvider';
 
 export const YearsSlider = observer(() => {
   const isMaxWidth1050px = useMediaQuery({ query: '(max-width: 1050px)' });
+  const historicalDataStore = useHistoricalDataStore();
+
   const periods = historicalDataStore.getAllPeriods();
   return (
     <div className={s.container}>

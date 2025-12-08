@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import cn from 'classnames';
-import s from './style.module.scss';
 import { ArrowIcon } from '../../../shared/ui/Circle/arrowIcon';
-import { historicalDataStore } from '../../../../store';
 import { observer } from 'mobx-react-lite';
+import { useHistoricalDataStore } from '../../../../store/hookProvider';
+import s from './style.module.scss';
 
-type ArrowLeftButtonProps = {};
-export const ArrowLeftButton: React.FC<ArrowLeftButtonProps> = observer(() => {
+export const ArrowLeftButton = observer(() => {
+  const historicalDataStore = useHistoricalDataStore();
   const swiper = historicalDataStore.swiper;
   const [isAtStart, setIsAtStart] = useState(true);
 

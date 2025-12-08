@@ -4,9 +4,9 @@ import { observer } from 'mobx-react-lite';
 import { Item } from './components/Item';
 import { ArrowRightButton } from './components/ArrowRight';
 import { ArrowLeftButton } from './components/ArrowLeft';
-import { historicalDataStore } from '../../store';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useGetMediaValues } from './utils';
+import { useHistoricalDataStore } from '../../store/hookProvider';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,6 +15,8 @@ import 'swiper/css/scrollbar';
 import s from './style.module.scss';
 
 export const ItemsSlider = observer(() => {
+  const historicalDataStore = useHistoricalDataStore();
+
   const { slidesPerView, spaceBetween, withControls } = useGetMediaValues();
 
   const points = historicalDataStore.currentPoints;
