@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { YearsSlider } from './components/YearsSlider';
 import { Title } from './components/Title';
 import { ItemsSlider } from './components/ItemsSlider';
-import { calculateDots, getDelta, getRealIndex } from './utils';
+import { calculateDots, getDelta } from './utils';
 import {
   CIRCLE_RADIUS,
   START_DOT_RADIUS,
@@ -93,7 +93,6 @@ export const Container = observer(() => {
 
   const handleDotMouseEnter =
     (dotId: number) => (event: React.MouseEvent<SVGGElement>) => {
-      const realIndex = getRealIndex(currentIndex, dotId, periods.length);
       const outerCircle = event.currentTarget.querySelector('#outer_circle');
       const innerCircle = event.currentTarget.querySelector('#inner_circle');
       const text = event.currentTarget.querySelector('text');

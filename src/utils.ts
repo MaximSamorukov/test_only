@@ -22,18 +22,6 @@ export const calculateDots = (
   });
 };
 
-export const getRealIndex = (
-  currentIndex: number,
-  id: number,
-  count: number,
-) => {
-  const sum = currentIndex + id;
-  if (sum < count) {
-    return sum;
-  }
-  return sum - count;
-};
-
 export const getDelta = (
   previousIndex: number,
   currentIndex: number,
