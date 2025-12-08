@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 .container {
   width: fit-content;
   min-width: 431px;
@@ -53,7 +55,7 @@
 .markLine {
   height: 100%;
   width: 5px;
-  background: linear-gradient(to bottom, #3877ee, #ef5da8);
+  background: linear-gradient(to bottom, $ITEM_LABEL, $PERIOD_END_YEAR);
   box-shadow: 0 4px 4px 0 rgba(#000000, 0.25);
 
   @media (max-width: 510px) {
@@ -74,7 +76,7 @@
     line-height: 120%;
     font-size: 56px;
     letter-spacing: -1%;
-    color: #42567a;
+    color: $DARK_BLUE;
   }
   @media (max-width: 1440px) {
     width: 353px;

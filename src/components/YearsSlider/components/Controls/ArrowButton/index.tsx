@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import s from './style.module.scss';
 import { ThinCircle } from '../../../../shared/ui/Circle/circle';
+import { PATH_COLOR } from '../../../../../constants';
 
 type ArrowButtonProps = {
   onClick: () => void;
@@ -22,7 +23,7 @@ export const ArrowButton: React.FC<ArrowButtonProps> = ({
   const handleMouseLeave = () => {
     setHover(false);
   };
-  const color = '#42567A';
+  const color = PATH_COLOR;
   const width = 0.6;
   const hoveredWidth = 1;
   const widthValue = hover ? hoveredWidth : width;

@@ -1,3 +1,5 @@
+@import '../../../../../colors.scss';
+
 .container {
   all: unset;
   width: fit-content;
@@ -27,7 +29,7 @@
   height: 6px;
   width: 6px;
   border-radius: 50%;
-  background-color: #42567a;
+  background-color: $DARK_BLUE;
   opacity: 40%;
   &Current {
     opacity: 100%;

@@ -1,3 +1,4 @@
+@import '../../colors.scss';
 .container {
   width: 100%;
   display: flex;
@@ -11,7 +12,7 @@
       content: '';
       width: 273px;
       height: 2px;
-      background-color: #c7cdd9;
+      background-color: $SEPARATOR;
     }
   }
 }

@@ -1,3 +1,5 @@
+@import '../../../../colors.scss';
+
 .container {
   width: 973px;
   height: 160px;
@@ -94,7 +96,7 @@
     font-weight: inherit;
     line-height: inherit;
     letter-spacing: inherit;
-    color: #5d5fef;
+    color: $PERIOD_START_YEAR;
   }
 }
 
@@ -105,6 +107,6 @@
     font-weight: inherit;
     line-height: inherit;
     letter-spacing: inherit;
-    color: #ef5da8;
+    color: $PERIOD_END_YEAR;
   }
 }
